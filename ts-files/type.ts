@@ -45,22 +45,37 @@
 // createError('Error');
 
 // Object destructuring
-const userObj = {
-  userName: 'Ilya',
-  userAge: 19,
-  isPeople: true
-}
-const logMsgObj = ({userName, userAge, isPeople}: {userName: string, userAge: number, isPeople: boolean}): string => {
-  if (isPeople) {
-    return `${userName} ${userAge} years old`;
-  } else {
-    return 'Error';
-  }
-}
-console.log(logMsgObj(userObj));
+// const userObj = {
+//   userName: 'Ilya',
+//   userAge: 19,
+//   isPeople: true
+// }
+// const logMsgObj = ({userName, userAge, isPeople}: {userName: string, userAge: number, isPeople: boolean}): string => {
+//   if (isPeople) {
+//     return `${userName} ${userAge} years old`;
+//   } else {
+//     return 'Error';
+//   }
+// }
+// console.log(logMsgObj(userObj));
+//
+// // Array
+// const departments: string[] = ['dev', 'design', 'figma'];
+// const nums: number[] = [1, 4, 4];
+// const Arr: number[][] = [[1,4], [2, 5]];
+// const [first] = nums;
 
-// Array
-const departments: string[] = ['dev', 'design', 'figma'];
-const nums: number[] = [1, 4, 4];
-const Arr: number[][] = [[1,4], [2, 5]];
-const [first] = nums;
+// // Tuples
+// const userDataTuple: [boolean, number, string] = [true, 40, 'ilya'];
+// const userDataTupleSpread: [boolean, number, ...string[]] = [true, 40, 'ilya', 'ann', 'alex'];
+
+// Union
+const message: string | number = 5;
+const text: string | boolean | number = true;
+const messages: string[] | number[] = ['d', 'df'];
+
+function printMsg(msg: string | number): void {
+  console.log(msg);
+}
+printMsg(5);
+printMsg('hello');
