@@ -70,12 +70,78 @@
 // const userDataTupleSpread: [boolean, number, ...string[]] = [true, 40, 'ilya', 'ann', 'alex'];
 
 // Union
-const message: string | number = 5;
-const text: string | boolean | number = true;
-const messages: string[] | number[] = ['d', 'df'];
+// const message: string | number = 5;
+// const text: string | boolean | number = true;
+// const messages: string[] | number[] = ['d', 'df'];
+//
+// function printMsg(msg: string | number): void {
+//   console.log(msg);
+// }
+// printMsg(5);
+// printMsg('hello');
 
-function printMsg(msg: string | number): void {
-  console.log(msg);
-}
-printMsg(5);
-printMsg('hello');
+// Narrowing
+// function printMsg(msg: string | number): void {
+//   if (typeof msg === 'string') {
+//     console.log(msg.toUpperCase());
+//   } else {
+//     console.log(msg * 2);
+//   }
+// }
+// function printMsg(msg: string[] | number): void {
+//   if (Array.isArray(msg)) {
+//     msg.forEach(m => console.log(m));
+//   } else if (typeof msg === "number") {
+//     console.log(msg.toFixed());
+//   } else {
+//     console.log(msg);
+//   }
+// }
+// printMsg(5);
+// printMsg(['3df', '4df', '5df']);
+
+// Literal types
+// let msg: 'hello' = 'hello';
+// msg = 'hello';
+//
+// const port3000: number = 3000;
+// const port3001: number = 3001;
+// function startServer(protocol: 'http' | 'https', port: 3000 | 3001): 'Server started' {
+//   if (port === port3000 || port === port3001) {
+//     console.log(`Server started on ${protocol}://server:${port}`)
+//   }
+//   return 'Server started';
+// }
+// startServer('http', 3001);
+
+// Aliases type
+// type AnimTimingFunc = 'ease' | 'ease-out' | 'ease-in';
+// function createAnimation(id: string | number,
+//                          animationName: string,
+//                          timingFunc: AnimTimingFunc = 'ease',
+//                          duration: number,
+//                          iterCount: 'infinite' | number
+//                          ): void {
+//   console.log(`${animationName} ${timingFunc} ${duration} ${iterCount}`);
+// }
+//
+// createAnimation('id', 'fade', 'ease-in', 5, 'infinite');
+
+// Object literal and annotation
+// const serverConfig: {
+//   protocol: 'http' | 'https';
+//   port: 3000 | 3001;
+// } = {
+//   protocol: 'http',
+//   port: 3001,
+// }
+// const port3000: number = 3000;
+// const port3001: number = 3001;
+// const startServer: (protocol: 'http' | 'https', port: 3000 | 3001) => string =
+//   (protocol: 'http' | 'https', port: 3000 | 3001): 'Server started' => {
+//   if (port === port3000 || port === port3001) {
+//     console.log(`Server started on ${protocol}://server:${port}`)
+//   }
+//   return 'Server started';
+// }
+// startServer(serverConfig.protocol, serverConfig.port);
