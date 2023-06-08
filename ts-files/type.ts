@@ -231,3 +231,23 @@
 //   left: '50px',
 // }
 // console.log(stylees);
+
+// problem Json.parse interface
+
+const userData = '{"isBirthdayDat": true, "ageData": 19, "userNameData": "Ilya"}';
+
+interface UserData {
+  isBirthdayData: boolean;
+  ageData: number;
+  userNameData: string;
+}
+
+const userOnj: UserData = JSON.parse(userData);
+console.log(userOnj.ageData);
+
+let isOkey = true;
+let movement: boolean | string = false;
+
+if (isOkey) {
+  movement = "moving";
+}
