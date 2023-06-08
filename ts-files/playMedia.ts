@@ -16,8 +16,8 @@ enum FormatsOfMedia {
 // Описание интерфейса, в котором:
 interface IMedia {
 	name: string;
-	type: TypesOfMedia.VIDEO;
-	format: FormatsOfMedia.MP4;
+	type: TypesOfMedia;
+	format: FormatsOfMedia;
 	subtitles?: string;
 	marks?: unknown
 }
@@ -34,7 +34,7 @@ function playMedia(
 		format: FormatsOfMedia.MP4,
 	}
 ): string {
-	let marksLog: unknown;
+	let marksLog: string;
 	if (marks instanceof Array) {
 		marksLog = marks.join('');
 	} else if (typeof marks === "string") {
