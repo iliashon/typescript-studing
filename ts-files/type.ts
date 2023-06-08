@@ -252,15 +252,15 @@
 //   movement = "moving";
 // }
 
-//  not use '?' && 'string | undefined'
+//  not use '?' && 'string | undefined' and readonly
 
 interface User {
-  login: string;
+  readonly login: string;
   password: string;
   age: number;
   // addr?: string;
-  addr: string | undefined,
-  parents: {
+  readonly addr: string | undefined,
+  parents?: {
     mother?: string;
     father?: string;
   }
@@ -277,8 +277,21 @@ const user: User = {
   },
 }
 
-const dbName = '12335';
+const userFreez: Readonly<User>= {
+  login: 'user',
+  password: 'qqq',
+  age: 19,
+  addr: 'asdf',
+  parents: {
+    mother: 'lena',
+    father: 'alex',
+  },
+}
+
+let dbName: string;
 
 function sendUserData(obj: User, db?: string): void {
-  console.log(obj.parents.father?.toUpperCase(), db?.toUpperCase());
+  console.log(obj.parents!.father?.toUpperCase(), db?.toUpperCase());
 }
+
+const basicPorts: ReadonlyArray<number> = [3000, 3001, 5555];
