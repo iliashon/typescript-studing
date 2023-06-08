@@ -254,44 +254,74 @@
 
 //  not use '?' && 'string | undefined' and readonly
 
-interface User {
-  readonly login: string;
-  password: string;
-  age: number;
-  // addr?: string;
-  readonly addr: string | undefined,
-  parents?: {
-    mother?: string;
-    father?: string;
+// interface User {
+//   readonly login: string;
+//   password: string;
+//   age: number;
+//   // addr?: string;
+//   readonly addr: string | undefined,
+//   parents?: {
+//     mother?: string;
+//     father?: string;
+//   }
+// }
+//
+// const user: User = {
+//   login: 'user',
+//   password: 'qqq',
+//   age: 19,
+//   addr: 'asdf',
+//   parents: {
+//     mother: 'lena',
+//     father: 'alex',
+//   },
+// }
+//
+// const userFreez: Readonly<User>= {
+//   login: 'user',
+//   password: 'qqq',
+//   age: 19,
+//   addr: 'asdf',
+//   parents: {
+//     mother: 'lena',
+//     father: 'alex',
+//   },
+// }
+//
+// let dbName: string;
+//
+// function sendUserData(obj: User, db?: string): void {
+//   console.log(obj.parents!.father?.toUpperCase(), db?.toUpperCase());
+// }
+//
+// const basicPorts: ReadonlyArray<number> = [3000, 3001, 5555];
+
+//  enums
+
+const TOP = 'Top';
+const RIGHT = 'Right';
+
+enum Directions {
+  TOP,
+  RIGHT,
+  LEFT,
+  BOTTOM
+}
+enum TimingFunc {
+  EASE = 'ease',
+  EASE_IN = 'ease-in',
+  LINER = 'liner'
+}
+
+const enum TimingFuncN {
+  EASE = 1,
+  EASE_IN = 2,
+  LINER = EASE * 2
+}
+function  frame(elem: string, dir: Directions, tFunc: TimingFunc): void {
+  if (dir === Directions.RIGHT) {
+    console.log(tFunc);
   }
 }
 
-const user: User = {
-  login: 'user',
-  password: 'qqq',
-  age: 19,
-  addr: 'asdf',
-  parents: {
-    mother: 'lena',
-    father: 'alex',
-  },
-}
-
-const userFreez: Readonly<User>= {
-  login: 'user',
-  password: 'qqq',
-  age: 19,
-  addr: 'asdf',
-  parents: {
-    mother: 'lena',
-    father: 'alex',
-  },
-}
-
-let dbName: string;
-
-function sendUserData(obj: User, db?: string): void {
-  console.log(obj.parents!.father?.toUpperCase(), db?.toUpperCase());
-}
-
-const basicPorts: ReadonlyArray<number> = [3000, 3001, 5555];
+frame('id', Directions.RIGHT, TimingFunc.EASE);
