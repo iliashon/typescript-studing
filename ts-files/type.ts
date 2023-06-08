@@ -234,20 +234,51 @@
 
 // problem Json.parse interface
 
-const userData = '{"isBirthdayDat": true, "ageData": 19, "userNameData": "Ilya"}';
+// const userData = '{"isBirthdayDat": true, "ageData": 19, "userNameData": "Ilya"}';
+//
+// interface UserData {
+//   isBirthdayData: boolean;
+//   ageData: number;
+//   userNameData: string;
+// }
+//
+// const userOnj: UserData = JSON.parse(userData);
+// console.log(userOnj.ageData);
+//
+// let isOkey = true;
+// let movement: boolean | string = false;
+//
+// if (isOkey) {
+//   movement = "moving";
+// }
 
-interface UserData {
-  isBirthdayData: boolean;
-  ageData: number;
-  userNameData: string;
+//  not use '?' && 'string | undefined'
+
+interface User {
+  login: string;
+  password: string;
+  age: number;
+  // addr?: string;
+  addr: string | undefined,
+  parents: {
+    mother?: string;
+    father?: string;
+  }
 }
 
-const userOnj: UserData = JSON.parse(userData);
-console.log(userOnj.ageData);
+const user: User = {
+  login: 'user',
+  password: 'qqq',
+  age: 19,
+  addr: 'asdf',
+  parents: {
+    mother: 'lena',
+    father: 'alex',
+  },
+}
 
-let isOkey = true;
-let movement: boolean | string = false;
+const dbName = '12335';
 
-if (isOkey) {
-  movement = "moving";
+function sendUserData(obj: User, db?: string): void {
+  console.log(obj.parents.father?.toUpperCase(), db?.toUpperCase());
 }
