@@ -366,22 +366,63 @@
 // type T2 = any & unknown;
 // type T3 = number & unknown;
 
-const dataFromControl = {
-  water: 200,
-  el: 350,
-}
+// const dataFromControl = {
+//   water: 200,
+//   el: 350,
+// }
+//
+// function checkReadings(data: typeof dataFromControl): boolean {
+//   const dataFromUser = {
+//     water: 200,
+//     el: 350,
+//   }
+//   if (data.el === dataFromUser.el && data.water === dataFromUser.water) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+//
+// const PI = 3.14;
+// let PIClone: typeof PI;
 
-function checkReadings(data: typeof dataFromControl): boolean {
-  const dataFromUser = {
-    water: 200,
-    el: 350,
-  }
-  if (data.el === dataFromUser.el && data.water === dataFromUser.water) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// let num: Number = new Number(5);
+// let num2: number = 5;
+// let num3 = Number(5);
 
-const PI = 3.14;
-let PIClone: typeof PI;
+// num = num2;
+// num2 = num; ---ERROR---
+
+// const num = 5;
+// const strNum: string = num.toString();
+// const str: string = '5';
+// const numStr: number = +str;
+//
+// interface Department {
+//   name: string;
+//   budget: number;
+// }
+//
+// const department: Department = {
+//   name: 'web-dev',
+//   budget: 50000,
+// }
+//
+// interface Project {
+//   name: string;
+//   projectBudger: number;
+// }
+//
+// const mainProject: Project = {
+//   ...department,
+//   projectBudger: 5000,
+// }
+//
+// function trans(departament: Department, amount: number): Project {
+//   return {
+//     name: departament.name,
+//     projectBudger: amount,
+//   }
+// }
+//
+// const mainProject = trans(department, 4000);
