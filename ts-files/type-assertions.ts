@@ -48,23 +48,43 @@ function isNumber (n: unknown): n is number {
 }
 
 interface Car {
+  name: 'car';
   engine: string;
   wheels: number;
 }
 
 interface Ship {
+  name: 'ship';
   engine: string
   sail: string;
 }
 
+interface ComplexVehicle {
+  name: 'car' | 'ship' | 'airplane';
+  engine: string;
+  wheels?: number;
+  wings?: string;
+  sail?: string;
+}
+
 function repairVehicle(vehicle: Car | Ship) {
-  if (isCar(vehicle)) {
-    vehicle.engine;
-  } else {
-    vehicle.sail;
+  switch (vehicle.engine) {
+    case "ship":
+      console.log(vehicle.engine)
+      break;
+    case "car":
+      console.log(vehicle.engine);
+      break;
+    default:
+      console.log('op!');
   }
 }
 
 function isCar(car: Car | Ship): car is Car {
   return (car as Car).wheels !== undefined;
 }
+
+function isShip(ship: Car | Ship): ship is Ship {
+  return (ship as Ship).sail !== undefined;
+}
+
