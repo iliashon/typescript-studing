@@ -328,40 +328,60 @@
 
 // type unknown
 
-let smth: unknown;
+// let smth: unknown;
+//
+// smth = 'str';
+//
+// // let data: string[] = smth;
+// data.find(e => e);
+//
+// const someValue: unknown = 10;
+// // someValue.method();
+// function fetchData(data: unknown): void {
+//   if (typeof data === "string") {
+//     console.log(data.toUpperCase());
+//   }
+// }
+//
+// const userData = '{"isBirthdayDat": true, "ageData": 19, "userNameData": "Ilya"}';
+//
+// function safeParse(s: string): unknown {
+//   return JSON.parse(s);
+// }
+//
+// const data = safeParse((userData));
+//
+// function transsferData(d: unknown): void {
+//   if (typeof d === "string") {
+//     console.log(d.toUpperCase());
+//   } else if ( typeof d === "object" && d) {
+//     console.log(data);
+//   } else {
+//     console.error('Some error');
+//   }
+// }
+//
+// type T0 = any | unknown;
+// type T1 = number | unknown;
+// type T2 = any & unknown;
+// type T3 = number & unknown;
 
-smth = 'str';
+const dataFromControl = {
+  water: 200,
+  el: 350,
+}
 
-// let data: string[] = smth;
-data.find(e => e);
-
-const someValue: unknown = 10;
-// someValue.method();
-function fetchData(data: unknown): void {
-  if (typeof data === "string") {
-    console.log(data.toUpperCase());
+function checkReadings(data: typeof dataFromControl): boolean {
+  const dataFromUser = {
+    water: 200,
+    el: 350,
   }
-}
-
-const userData = '{"isBirthdayDat": true, "ageData": 19, "userNameData": "Ilya"}';
-
-function safeParse(s: string): unknown {
-  return JSON.parse(s);
-}
-
-const data = safeParse((userData));
-
-function transsferData(d: unknown): void {
-  if (typeof d === "string") {
-    console.log(d.toUpperCase());
-  } else if ( typeof d === "object" && d) {
-    console.log(data);
+  if (data.el === dataFromUser.el && data.water === dataFromUser.water) {
+    return true;
   } else {
-    console.error('Some error');
+    return false;
   }
 }
 
-type T0 = any | unknown;
-type T1 = number | unknown;
-type T2 = any & unknown;
-type T3 = number & unknown;
+const PI = 3.14;
+let PIClone: typeof PI;
