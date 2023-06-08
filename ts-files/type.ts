@@ -145,3 +145,87 @@
 //   return 'Server started';
 // }
 // startServer(serverConfig.protocol, serverConfig.port);
+
+// Type (Intersection)
+// type Config = {
+//   protocol: 'http' | 'https';
+//   port: 3000 | 3001;
+// };
+// type Role = {
+//   role: string,
+// }
+// type ConfigWithRole = Config & Role;
+//
+// const serverConfig: ConfigWithRole  = {
+//   protocol: 'http',
+//   port: 3001,
+//   role: 'admin',
+// }
+//
+// const beckupConfig: ConfigWithRole = {
+//   protocol: 'https',
+//   port: 3000,
+//   role: 'sysadmin',
+// }
+//
+// const port3000: number = 3000;
+// const port3001: number = 3001;
+//
+// type StartFunction = (protocol: 'http' | 'https', port: 3000 | 3001) => string;
+// const startServer: StartFunction =
+//   (protocol: 'http' | 'https', port: 3000 | 3001): 'Server started' => {
+//   if (port === port3000 || port === port3001) {
+//     console.log(`Server started on ${protocol}://server:${port}`)
+//   }
+//   return 'Server started';
+// }
+// startServer(serverConfig.protocol, serverConfig.port);
+
+// interface
+
+// type Config = {
+//   protocol: 'http' | 'https';
+//   port: 3000 | 3001;
+// };
+
+interface IConfig {
+  protocol: 'http' | 'https';
+  port: 3000 | 3001;
+  log: (msg: string) => void
+}
+
+interface Role {
+  role: string,
+}
+
+interface ConfigWithRole extends IConfig, Role {}
+
+const serverConfig: ConfigWithRole  = {
+  protocol: 'http',
+  port: 3001,
+  role: 'admin',
+  log: (msg: string): void => console.log(msg),
+}
+
+const port3000: number = 3000;
+const port3001: number = 3001;
+
+type StartFunction = (protocol: 'http' | 'https', port: 3000 | 3001, log: (msg: string) => void) => string;
+const startServer: StartFunction =
+  (protocol: 'http' | 'https', port: 3000 | 3001): 'Server started' => {
+    if (port === port3000 || port === port3001) {
+      console.log(`Server started on ${protocol}://server:${port}`)
+    }
+    return 'Server started';
+  }
+startServer(serverConfig.protocol, serverConfig.port, serverConfig.log);
+
+interface Istyles {
+  [key: string]: string;
+}
+
+const stylees: Istyles = {
+  position: 'absolut',
+  top: '20px',
+  left: '50px',
+}
