@@ -8,8 +8,6 @@ if (link) {
   link.href = 'fafa';
 }
 
-input.value
-
 const elem = document.createElement('a');
 
 link?.addEventListener('click', (e) => {
