@@ -6,10 +6,16 @@ type Currencies = {
 };
 
 type CreateCustomCur<T> = {
-  [P in keyof T]: string
+  [P in keyof T as `custom${Capitalize<string & P>}`]: string
 }
 
 type CustimClone = CreateCustomCur<Currencies>;
+
+type MyAnimation = 'fade' | 'swipe';
+
+type Direction = 'in' | 'out';
+
+type MyNewAnim = `${MyAnimation}${Capitalize<Direction>}`;
 
 // type CustomCurrencies = {
 //   usa: string;
